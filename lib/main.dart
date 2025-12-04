@@ -4,7 +4,6 @@ import 'package:flutter_application_1/game_page.dart';
 // import 'package:flutter_application_1/home_page.dart';
 import 'package:flutter_application_1/splash_page.dart';
 import 'package:flutter_application_1/suduku_page.dart';
-// import 'package:flutter_application_1/home_page.dart';
 
 void main() {
   runApp(
