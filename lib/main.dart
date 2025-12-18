@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/contacts_page.dart';
+import 'package:flutter_application_1/counter_page.dart';
 // import 'package:flutter_application_1/calculator.dart';
 import 'package:flutter_application_1/game_page.dart';
 import 'package:flutter_application_1/home_page_stateful.dart';
@@ -14,7 +15,8 @@ void main() {
       debugShowCheckedModeBanner: false,
       initialRoute: "/",
       routes: {
-        "/": (context) => ContactsPage(),
+        "/": (context) => CounterPage(),
+        // "/": (context) => ContactsPage(),
         "/game": (context) => GamePage(),
         "/suduku": (context) => SudukuPage(),
       },
