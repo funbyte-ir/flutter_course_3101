@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/download_manager_page.dart';
 // import 'package:flutter_application_1/counter_page.dart';
 // import 'package:flutter_application_1/calculator.dart';
 import 'package:flutter_application_1/game_page.dart';
@@ -15,7 +16,7 @@ void main() {
       debugShowCheckedModeBanner: false,
       initialRoute: "/",
       routes: {
-        "/": (context) => AsyncDemoPage(),
+        "/": (context) => DownloadManagerPage(),
         // "/": (context) => ContactsPage(),
         "/game": (context) => GamePage(),
         "/suduku": (context) => SudukuPage(),

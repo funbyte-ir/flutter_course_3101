@@ -31,12 +31,12 @@ class _AsyncDemoPageState extends State<AsyncDemoPage> {
     });
   }
 
-  void startAsyncTasks() {
+  Future<void> startAsyncTasks() async {
     dataList.clear();
     setState(() {});
-    addFirstData();
-    addSecondData();
-    addThirdData();
+    await addFirstData();
+    await addSecondData();
+    await addThirdData();
   }
 
   @override
@@ -53,6 +53,8 @@ class _AsyncDemoPageState extends State<AsyncDemoPage> {
           ),
 
           const SizedBox(height: 16),
+
+          LinearProgressIndicator(value: 0.5),
 
           Expanded(
             child: ListView.builder(
