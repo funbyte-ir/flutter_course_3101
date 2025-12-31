@@ -1,7 +1,11 @@
 class MyFile {
   String name;
-  int size;
+  String url;
+  String? filePath;
+  int size = 0;
   int progress = 0;
   bool isDownloading = false;
-  MyFile(this.name, this.size);
+  bool isCompleted = false;
+  
+  MyFile(this.name, this.url);
 }
