@@ -18,7 +18,7 @@ class FileWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      margin: EdgeInsets.all(8),
       child: ListTile(
         title: Text(file.name),
         subtitle: Column(

@@ -20,17 +20,17 @@ class _DownloadManagerPageState extends State<DownloadManagerPage> {
   final Map<MyFile, CancelToken> _cancelTokens = {};
 
   Future<void> addDownload() async {
-    final url = _urlController.text.trim();
-    if (url.isEmpty) {
-      if (mounted) displayToast(context, "لطفا آدرس فایل را وارد کنید");
-      return;
-    }
+    final url = _urlController.text;
+    // if (url.isEmpty) {
+    //   if (mounted) displayToast(context, "لطفا آدرس فایل را وارد کنید");
+    //   return;
+    // }
 
     // استخراج نام فایل از آدرس
     String fileName = url.split('/').last;
-    if (fileName.isEmpty || !fileName.contains('.')) {
-      fileName = 'download_${DateTime.now().millisecondsSinceEpoch}';
-    }
+    // if (fileName.isEmpty || !fileName.contains('.')) {
+    //   fileName = 'download_${DateTime.now().millisecondsSinceEpoch}';
+    // }
 
     // دریافت پوشه دانلود
     final directory = await getDownloadsDirectory();
@@ -45,7 +45,7 @@ class _DownloadManagerPageState extends State<DownloadManagerPage> {
     });
 
     _urlController.clear();
-    downloadFile(newFile);
+    // downloadFile(newFile);
   }
 
   Future<void> downloadFile(MyFile file) async {
@@ -130,17 +130,17 @@ class _DownloadManagerPageState extends State<DownloadManagerPage> {
                       style: TextStyle(fontSize: 16),
                     ),
                   )
-                : ListView.builder(
-                    itemCount: files.length,
-                    itemBuilder: (context, index) {
-                      final file = files[index];
-                      return FileWidget(
-                        file: file,
-                        onDownload: () => downloadFile(file),
-                        onCancel: () => cancelDownload(file),
-                        onOpen: () => openFile(file),
-                      );
-                    },
+                : ListView(
+                    children: files
+                        .map(
+                          (file) => FileWidget(
+                            file: file,
+                            onDownload: () => downloadFile(file),
+                            onCancel: () => cancelDownload(file),
+                            onOpen: () => openFile(file),
+                          ),
+                        )
+                        .toList(),
                   ),
           ),
         ],
@@ -150,18 +150,18 @@ class _DownloadManagerPageState extends State<DownloadManagerPage> {
 
   Widget addFileWidget() {
     return Padding(
-      padding: EdgeInsets.all(16.0),
+      padding: EdgeInsets.all(10),
       child: Row(
         children: [
           Expanded(
             child: TextField(
               controller: _urlController,
-              decoration: InputDecoration(
-                labelText: "آدرس فایل",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(25),
-                ),
-              ),
+              // decoration: InputDecoration(
+              //   labelText: "آدرس فایل",
+              //   border: OutlineInputBorder(
+              //     borderRadius: BorderRadius.circular(25),
+              //   ),
+              // ),
             ),
           ),
           SizedBox(width: 8),
